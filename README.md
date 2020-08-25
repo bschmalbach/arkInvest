@@ -19,6 +19,6 @@ In this script, I present the Europeanized version of the portfolio using the fo
 
 Top 20 stocks by weight in the composite Europeanized ARK ETF (or ARK20)
 
-<img src="https://github.com/bschmalbach/blob/master/Rplot.png">
+<img src="https://github.com/bschmalbach/arkInvest/blob/master/Rplot.png">
 
 Some of these decisions are subjective and obviously none of this is financial advise.
