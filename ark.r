@@ -63,7 +63,6 @@ daily <- function(){
   return(df)
 }
 
-setwd("C:/Users/q7/Desktop/i")
 df <- daily()
 head(df)
 
@@ -96,43 +95,11 @@ df_a$prop <- df_a$weight_sqrtmultiple/sum(df_a$weight_sqrtmultiple)
 df_a <- df_a[order(df_a$prop, decreasing = T),]
 pie(df_a$prop, labels = df_a$ticker)
 
-#reweight
 
-
+#reweight for top20
 df_b <- df_a[1:20,]
 df_b$prop <- df_b$prop/sum(df_b$prop)
 pie(df_b$prop, labels = df_b$ticker)
 
-
-sum(round(df_b$prop*100))
-View(cbind(as.character(df_b$ticker), round(df_b$prop*100)))
-
-
-df_b$growth_factor <- NA
-df_b$growth_factor[df_b$ticker=="TSLA"] <- "electric revolution, mobility, autonomy"
-df_b$growth_factor[df_b$ticker=="SQ"] <- "financial revolution"
-df_b$growth_factor[df_b$ticker=="NVTA"] <- ""
-df_b$growth_factor[df_b$ticker=="CRSP"] <- ""
-df_b$growth_factor[df_b$ticker=="TWOU"] <- ""
-df_b$growth_factor[df_b$ticker=="ROKU"] <- ""
-df_b$growth_factor[df_b$ticker=="Z"] <- ""
-df_b$growth_factor[df_b$ticker=="XLNX"] <- ""
-df_b$growth_factor[df_b$ticker=="ILMN"] <- ""
-df_b$growth_factor[df_b$ticker=="MELI"] <- ""
-df_b$growth_factor[df_b$ticker=="SPLK"] <- ""
-df_b$growth_factor[df_b$ticker=="EDIT"] <- ""
-df_b$growth_factor[df_b$ticker=="SSYS"] <- "3d printing"
-df_b$growth_factor[df_b$ticker=="SE"] <- ""
-df_b$growth_factor[df_b$ticker=="ADYEY"] <- "fintech"
-df_b$growth_factor[df_b$ticker=="PINS"] <- ""
-df_b$growth_factor[df_b$ticker=="BABA"] <- ""
-df_b$growth_factor[df_b$ticker=="SNAP"] <- ""
-df_b$growth_factor[df_b$ticker=="TER"] <- ""
-df_b$growth_factor[df_b$ticker=="FLIR"] <- ""
-df_b$growth_factor[df_b$ticker=="JD"] <- ""
-df_b$growth_factor[df_b$ticker=="FB"] <- ""
-df_b$growth_factor[df_b$ticker=="PYPL"] <- ""
-df_b$growth_factor[df_b$ticker=="SPOT"] <- ""
-df_b$growth_factor[df_b$ticker=="CAT"] <- ""
-
-
+sum(round(df_b$prop*100)) #check if rounded weights sum to 100, otherwise reweight by hand
+View(cbind(as.character(df_b$ticker), round(df_b$prop*100))) #
