@@ -47,7 +47,7 @@ daily <- function(){
   df <- cbind(df, add[,-1])
   
   
-  #no FAANG
+  #no FAAMG
   df <- df[df$ticker!="AAPL",]
   df <- df[df$ticker!="AMZN",]
   df <- df[df$ticker!="GOOGL",]
@@ -56,9 +56,8 @@ daily <- function(){
   df <- df[df$ticker!="MSFT",]
   df <- df[is.na(df$ticker)==F,]
   
-  #remove low avg weight (below 3)
+  #reorder df by weight
   df <- df[order(df$weight..., decreasing = T),]
-  
   
   return(df)
 }
